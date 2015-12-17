@@ -185,7 +185,7 @@ public class ReflectionUtils {
 	 * @return the first generic declaration, or Object.class if cannot be determined
 	 */
 	@SuppressWarnings("unchecked")
-	public static <T> Class<T> getSuperClassGenricType(final Class clazz) {
+	public static <T> Class<T> getSuperClassGenricType(final Class<?> clazz) {
 		return getSuperClassGenricType(clazz, 0);
 	}
 
@@ -199,7 +199,7 @@ public class ReflectionUtils {
 	 * @param index the Index of the generic ddeclaration,start from 0.
 	 * @return the index generic declaration, or Object.class if cannot be determined
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	public static Class getSuperClassGenricType(final Class clazz, final int index) {
 
 		Type genType = clazz.getGenericSuperclass();
@@ -230,7 +230,7 @@ public class ReflectionUtils {
 	 * @param collection 来源集合.
 	 * @param propertyName 要提取的属�?�?
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static List convertElementPropertyToList(final Collection collection, final String propertyName) {
 		List list = new ArrayList();
 
@@ -251,7 +251,6 @@ public class ReflectionUtils {
 	 * @param collection 来源集合.
 	 * @param propertyName 要提取的属�?�?
 	 * @param separator 分隔�?
-	 */
 	@SuppressWarnings("unchecked")
 	public static String convertElementPropertyToString(final Collection collection, final String propertyName,
 			final String separator) {
